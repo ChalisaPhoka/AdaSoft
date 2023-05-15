@@ -1,0 +1,27 @@
+﻿@model Employees
+@{
+    ViewData["Title"] = "EditPage";
+}
+
+<div class="text-center">
+    <form method="post" asp-controller="Home" asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for="EmployeeID" class="form-label">EmployeeID</label>
+            <input type="text" class="form-control" asp-for="EmployeeID" aria-describedby="EmployeeID"
+                value="@ViewBag.EmployeeID" readonly>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label">FirstName</label>
+            <input type="text" class="form-control" asp-for="FirstName" aria-describedby="FirstName">
+        </div>
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">LastName</label>
+            <input type="text" class="form-control" asp-for="LastName" aria-describedby="LastName">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Age" class="form-label">Age</label>
+            <input type="text" class="form-control" asp-for="Age" aria-describedby="Age">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Employees>
+@{
+    ViewData["Title"] = "HomePage";
+}
+<div class="text-center">
+    <h1 class="display-4 ">Welcome</h1>
+</div>
+<div style="padding-top: 2%; padding-bottom: 2%;">
+    <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Add">Add</a>
+</div>
+<div class="text-center">
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>EmployeeID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+                <th>Management</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.EmployeeID</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Age</td>
+                    <td>
+                        <span>
+                            <a class="btn btn-warning" asp-area="" asp-controller="Home" asp-action="Edit"
+                                asp-route-id="@item.EmployeeID">Edit</a>
+                        </span>
+                        &nbsp;
+                        <span>
+                            <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="Delete"
+                                asp-route-id="@item.EmployeeID"
+                                onclick="return confirm('Do you sure to delete this employee?')">Delete</a>
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
